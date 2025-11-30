@@ -1,132 +1,211 @@
-/* COLOR PALETTES
---------------------------------------- 
-## Colors
+:root {
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+  --grey-500: hsl(234, 12%, 34%);
+  --grey-400: hsl(212, 6%, 44%);
+  --white: hsl(0, 0%, 100%);
 
-### Primary
+  --font-m: 1rem;
+  --font-l: 1.25rem;
+  --font-xl: 1.5rem;
+  --font-s: 0.75rem;
+  --fw-200: 200;
+  --fw-400: 400;
+  --fw-600: 600;
 
-- Red: hsl(0, 78%, 62%)
-- Cyan: hsl(180, 62%, 55%)
-- Orange: hsl(34, 97%, 64%)
-- Blue: hsl(212, 86%, 64%)
-
-### Neutral
-
-- Very Dark Blue: hsl(234, 12%, 34%)
-- Grayish Blue: hsl(229, 6%, 66%)
-- Very Light Gray: hsl(0, 0%, 98%)
-*/
- 
-/* GLOBAL STLYES
---------------------------------------- */
-
-body{
-    font-size: 15px;
-    font-family: Poppins;
-    text-align: center;
-    background: white;
-    color: hsl(229, 6%, 66%);
-} 
-main{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vh;
-    margin:auto;
-    padding: 0;
-    align-items: center;
-    justify-items: center;
-}
- 
-/* HEADING and INTRO
---------------------------------------- */
-h1{
-    color: hsl(234, 12%, 34%);
-    font-size:2rem;
-    font-weight: 600;
-    padding: 0;
-    margin: 0;
-}
-.introduction{
-    width: 32rem;
-}
-.introduction p:first-of-type{
-    font-size: 2rem;
-    color: hsl(234, 12%, 34%);
-    font-weight: 200;
-    padding: 0;
-    margin: 0;
+  --spacing-xs: 0.5em;
+  --spacing-s: 0.75em;
+  --spacing-m: 1em;
+  --spacing-l: 1.25em;
+  --spacing-xl: 1.5em;
 }
 
-
-/* SECTION WRAPPER
---------------------------------------- */
-.section-pages{
-    margin: 2rem 0;
-    padding: 0;
-    width: 72rem;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: 1fr 1fr;    
+/* CSS RESET */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  max-width: 100vw;
+}
+/* UTILITY CLASSES */
+.grid {
+  display: grid;
 }
 
-
-/* SECTIONS
---------------------------------------- */
-h2{
-    color: hsl(234, 12%, 34%);
-    font-size: 20px;
+.flex {
+  display: flex;
 }
-section{
-    text-align:initial;
-    background: white;
-    padding: 1rem;
-    margin: 1rem 1rem;
-    border-width: 5px;
-    border-radius: 10px;
-    border-style: solid none none;
-    box-shadow: 10px 10px 15px hsl(229, 6%, 66%);
-    width: 20rem;
-    display: flex;
-    flex-direction: column;
+.flex-col {
+  flex-direction: column;
 }
-section img{
-    align-self: flex-end;
-    border: solid;
+.bg-cyan {
+  background-color: var(--cyan);
+}
+.bg-orange {
+  background-color: var(--orange);
+}
+.bg-red {
+  background-color: var(--red);
+}
+.bg-blue {
+  background-color: var(--blue);
 }
 
-section p{
-    margin-top: 0;
+/* STYLING */
+body {
+  place-items: center;
+  align-content: center;
+  font-family: "Poppins";
+  color: var(--grey-500);
+  background-color: rgb(253, 253, 253);
 }
 
+main {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  gap: var(--spacing-xl);
+  padding-block: var(--spacing-xl);
+}
 
-/* ---- Supervisor Section ---- */
-.supervisor{
-    grid-column-start: 1;
-    grid-row: 1 /span 2;
-    align-self: center;
-    justify-self: end;
-    border-color: hsl(180, 62%, 55%);
+h1,
+h2 {
+  font-size: var(--font-xl);
 }
-/* Team Builder Section */
-.team-builder{
-    grid-column-start: 2;
-    grid-row-start: 1;
-    border-color: hsl(0, 78%, 62%);
+h1,
+h3 {
+  font-weight: var(--fw-600);
 }
-/* ---- Karma Section ---- */
-.karma{
-    grid-column-start: 2;
-    grid-row-start: 2;
-    border-color: hsl(34, 97%, 64%);
+h2,
+p {
+  color: var(--grey-400);
+  line-height: 150%;
 }
-/* ---- Calculator Section ---- */
-.calculator{
-    grid-column-start: 3;
-    grid-row: 1 /span 2;
-    align-self: center;
-    justify-self: start;
-    border-color: hsl(212, 86%, 64%);
+h2 {
+  font-weight: var(--fw-200);
 }
- 
-/* MEDIA QUERIES FOR DIFFERENT SCREEN SIZES
---------------------------------------- */
+h3 {
+  font-size: var(--font-l);
+}
+p {
+  font-size: 0.9375rem;
+}
+.intro {
+  align-items: center;
+  max-width: 20rem;
+}
+.intro p {
+  padding-block: var(--spacing-l);
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  gap: 2em;
+  place-items: center;
+  align-content: center;
+}
+
+article {
+  width: 100%;
+  height: 100%;
+  max-width: 20rem;
+  border-radius: var(--spacing-xs);
+  overflow: hidden;
+  background-color: var(--white);
+  box-shadow: 1px 1px 15px hsl(0, 0%, 78%);
+}
+
+.card {
+  gap: var(--spacing-s);
+  padding: var(--spacing-l);
+}
+.card img {
+  width: 4rem;
+  align-self: flex-end;
+  padding-block: var(--spacing-m);
+}
+.borderline {
+  height: 5px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Tablet mode */
+  main {
+    width: 80%;
+  }
+  .cards {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  article {
+    max-width: 25rem;
+  }
+  .supervisor,
+  .team-builder {
+    grid-row: 1;
+  }
+  .karma,
+  .calculator {
+    grid-row: 2;
+  }
+  .intro {
+    max-width: 25rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* Laptop mode */
+  main {
+    width: 80%;
+    height: 100%;
+    padding-block: var(--spacing-l);
+  }
+  h1 {
+    font-size: 2.5rem;
+    text-align: initial;
+  }
+  .intro {
+    max-width: 35rem;
+  }
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+  }
+
+  article {
+    max-width: 23rem;
+  }
+  .card {
+    padding: var(--spacing-xl);
+  }
+  .supervisor,
+  .calculator {
+    grid-row: 1/-1;
+    height: fit-content;
+  }
+  .team-builder,
+  .karma {
+    grid-column: 2;
+  }
+  .calculator {
+    grid-column: 3;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding-block: 2rem;
+}
+
